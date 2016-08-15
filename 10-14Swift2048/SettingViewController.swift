@@ -12,6 +12,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
 
     var segDimension: UISegmentedControl!
     var mainVC: MainViewController! 
+    var textNum: UITextField!
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
@@ -35,17 +36,21 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         self.view.backgroundColor = UIColor(red: 205, green: 186, blue: 150, alpha: 0.8)
+        
         setupControls()
+        
+        
+        
     }
 
     
     func setupControls()
     {
         //创建文本输入框
-        let txtNum = ViewFactory.createtextField(" ", action: Selector("numChanged"), sender: self)
-        txtNum.frame = CGRect(x: 80, y: 100, width: 200, height: 30)
-        txtNum.returnKeyType = UIReturnKeyType.Done
-        self.view.addSubview(txtNum)
+        textNum = ViewFactory.createtextField(String(mainVC.maxnumber), action: Selector("numChanged"), sender: self)
+        textNum.frame = CGRect(x: 80, y: 100, width: 200, height: 30)
+        textNum.returnKeyType = UIReturnKeyType.Done
+        self.view.addSubview(textNum)
         
         let labelNum = ViewFactory.createLabel("阀值：")
         labelNum.frame = CGRect(x: 20, y: 100, width: 60, height: 30)
@@ -66,6 +71,34 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    //阈值的返回
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()//键盘隐藏
+        //判断是否改变阈值
+        if(textField.text != "\(mainVC.maxnumber)"){
+            let num = Int(textField.text!)
+            mainVC.maxnumber = num!
+            
+        }
+        if(textField.text == ""){
+            mainVC.maxnumber = 2048
+            
+        }
+        
+        return true
+    }
+    
+    //添加手势点击是软键盘失去焦点
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch: AnyObject in touches{
+            let t: UITouch = touch as! UITouch
+            if (t.tapCount == 1){
+                textNum.resignFirstResponder()
+            }
+        }
+    }
+    
+    //维度的变化值
     func dimensionChanged(sender: SettingViewController){
         var segVals = [3, 4, 5, 6]
         

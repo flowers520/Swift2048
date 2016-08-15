@@ -15,7 +15,7 @@ enum Animation2048Type
     case Merge  // 合并动画
 }
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIAlertViewDelegate {
 
     //获取屏幕尺寸
     let screen = UIScreen.mainScreen().bounds.size
@@ -91,6 +91,7 @@ class MainViewController: UIViewController {
         
     }
 
+    //手势重置
     func resetTapped()
     {
         print("reset")
@@ -107,7 +108,7 @@ class MainViewController: UIViewController {
         genNumber()
     }
     
-    
+    //UI重置
     func resetUI()
     {
         for(_, tile) in tiles
@@ -205,6 +206,18 @@ class MainViewController: UIViewController {
         if(gmodel.isFull())
         {
             print("位置已经满了")
+            let alertcontroller = UIAlertController(title: "Game Over", message: "You are GG !", preferredStyle: .Alert)
+            alertcontroller.addAction(UIAlertAction(title: "Restart", style: UIAlertActionStyle.Default, handler: {
+                action in
+                    //重新开始
+                    self.resetUI()
+                    self.resetTapped()
+            }))
+            alertcontroller.addAction(UIAlertAction(title: "Give Up", style: UIAlertActionStyle.Cancel, handler: {
+                action in
+                    self.presentViewController(ViewController(), animated: true, completion: nil)
+            }))
+            self.presentViewController(alertcontroller, animated: true, completion: nil)
             return
         }
         

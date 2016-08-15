@@ -68,8 +68,8 @@ class GameModel {
     // 输出当前数据模型
     func printTiles()
     {
-        print(tiles)
-        print("输出数据模型数据")
+//        print(tiles)
+//        print("输出数据模型数据")
         let count = tiles.count
         for var i=0; i<count; i++
         {
