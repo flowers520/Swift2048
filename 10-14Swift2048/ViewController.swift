@@ -10,31 +10,47 @@ import UIKit
 
 class ViewController: UIViewController, UIAlertViewDelegate {
 
+    let screen = UIScreen.mainScreen().bounds.size
+    var startBtn:UIButton!
     
-    @IBAction func startGame(sender: UIButton)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = UIColor.orangeColor()
+        
+        setup()
+        
+    }
+
+    //setup
+    func setup(){
+        startBtn = UIButton(frame: CGRectMake((screen.width-100)/2, (screen.height-20)/2, 100, 20))
+        startBtn.setTitle("Play Game", forState: .Normal)
+        startBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        startBtn.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
+        startBtn.addTarget(self, action: Selector("startGame:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(startBtn)
+    }
+    
+    func startGame(sender: UIButton!)
     {
         
-        let alertController = UIAlertController(title: "开始！", message: "游戏就要开始了，你准备好了吗？", preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Ready Go!", style: UIAlertActionStyle.Default, handler: {
-        action in
+        let alertController = UIAlertController(title: "start", message: "Game is start, Are you ready?", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Go", style: UIAlertActionStyle.Default, handler: {
+            action in
             self.presentViewController(MainTabViewController(), animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: {
+            action in
+            self.presentViewController(ViewController(), animated: false, completion: nil)
         }))
         self.presentViewController(alertController, animated: true, completion: nil)
         
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
-    }
-
-
-    
-
 
 }
 

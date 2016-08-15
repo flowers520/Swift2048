@@ -132,7 +132,7 @@ class GameModel {
         }
     }
     
-    //数据模型变更
+//MARK: 数据模型变更
     func reflowUp()
     {
         copyToMtiles()
@@ -273,14 +273,15 @@ class GameModel {
         copyFromMtiles()
     }
     
-    // 合并方法
+    
+//MARK: 合并方法
     // 向上合并的方法
     func mergeUp()
     {
         copyToMtiles()
         var index: Int
         //从上到上合
-        for var i=dimension-1; i>0; i--
+        for var i=1; i<dimension; i++
         {
             for j in 0..<dimension
             {
@@ -303,7 +304,7 @@ class GameModel {
         copyToMtiles()
         var index: Int
         //从上到下合
-        for i in 0..<dimension-1
+        for var i=dimension-2; i>=0; i--
         {
             for j in 0..<dimension
             {
@@ -328,7 +329,7 @@ class GameModel {
         //从右到左合并
         for i in 0..<dimension
         {
-            for var j=dimension-1; j>0; j--
+            for var j=1; j<dimension; j++
             {
                 index = self.dimension * i + j
                 //如果邮编和左边的数字相邻的相等，则合并
@@ -351,7 +352,7 @@ class GameModel {
         //从左向右合
         for i in 0..<dimension
         {
-            for j in 0..<dimension-1
+            for var j=dimension-2; j>=0; j--
             {
                 index = self.dimension * i + j
                 //如果当前数字和正右边相邻的数字相等，则可以合并

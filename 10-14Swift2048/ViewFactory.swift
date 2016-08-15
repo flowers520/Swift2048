@@ -19,7 +19,7 @@ class ViewFactory{
     */
 
     class func getDefaultFrame() -> CGRect {
-        let defaultFrame = CGRectMake(0, 0, 100, 30)
+        let defaultFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width/2, 40)
         return defaultFrame
     }
     
@@ -44,7 +44,7 @@ class ViewFactory{
     class func createButton(title: String, action: Selector, sender: UIViewController) -> UIButton {
         let button = UIButton(frame: ViewFactory.getDefaultFrame())
         
-        button.backgroundColor = UIColor.orangeColor()
+        button.backgroundColor = UIColor.grayColor()
         button.setTitle(title, forState: .Normal)
         button.titleLabel?.textColor = UIColor.whiteColor()
         button.titleLabel?.font = UIFont.systemFontOfSize(14)
@@ -59,7 +59,9 @@ class ViewFactory{
         textField.textColor = UIColor.blackColor()
         textField.text = value
         textField.borderStyle = UITextBorderStyle.RoundedRect
-        
+        textField.placeholder = "输入阈值..."
+        textField.keyboardType = UIKeyboardType.NumberPad
+        textField.resignFirstResponder()
         textField.adjustsFontSizeToFitWidth = true
         textField.delegate = sender
         return textField
@@ -79,7 +81,7 @@ class ViewFactory{
     class func createLabel(title: String) -> UILabel {
         let label = UILabel()
         label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor.whiteColor()
+        label.backgroundColor = UIColor.clearColor()
         label.text = title;
         label.frame = ViewFactory.getDefaultFrame()
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)

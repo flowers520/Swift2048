@@ -22,7 +22,7 @@ class TileView: UIView {
     let colorMap = [
         2: UIColor.redColor(),
         4: UIColor.orangeColor(),
-        8: UIColor.yellowColor(),
+        8: UIColor(red: 238, green: 238, blue: 0, alpha: 0.8),
         16: UIColor.greenColor(),
         32: UIColor.brownColor(),
         64: UIColor.blueColor(),
@@ -50,7 +50,8 @@ class TileView: UIView {
         numberLabel.textColor = UIColor.whiteColor()
         numberLabel.textAlignment = NSTextAlignment.Center
         numberLabel.minimumScaleFactor = 0.5
-        numberLabel.font = UIFont(name: "微软雅黑", size: 20)
+        numberLabel.font = UIFont.boldSystemFontOfSize(20.0)
+        numberLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 25.0)
         numberLabel.text = "\(value)"
         super.init(frame: CGRectMake(pos.x, pos.y, width, width))
         addSubview(numberLabel)

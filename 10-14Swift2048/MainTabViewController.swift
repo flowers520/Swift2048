@@ -19,7 +19,7 @@ class MainTabViewController: UITabBarController {
         let viewMain = MainViewController()
         viewMain.title = "2048"
         let viewSetting = SettingViewController()
-        viewSetting.title = "设置"
+        viewSetting.title = "Setup"
         let main = UINavigationController(rootViewController: viewMain)
         let setting = UINavigationController(rootViewController: viewSetting)
         

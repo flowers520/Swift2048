@@ -13,6 +13,7 @@ enum ScoreType{
     case Best  // 最高分面板
 }
 
+//分数协议
 protocol ScoreViewProtocol{
     func changeScore(value s: Int)
 }
@@ -20,7 +21,7 @@ protocol ScoreViewProtocol{
 class ScoreView: UIView, ScoreViewProtocol {
 
     var label: UILabel!
-    let defaultFrame = CGRectMake(0, 0, 100, 30)
+    let defaultFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width/2, 40)
     var stype: String! //显示最高分还是分数
     var score: Int = 0{
         didSet{
@@ -35,7 +36,7 @@ class ScoreView: UIView, ScoreViewProtocol {
         label.textAlignment = NSTextAlignment.Center
         super.init(frame: defaultFrame)
         self.stype = (stype == ScoreType.Common ? "分数" : "最高分")
-        backgroundColor = UIColor.orangeColor()
+        backgroundColor = UIColor.clearColor()
         label.font = UIFont(name: "微软雅黑", size: 16)
         label.textColor = UIColor.whiteColor()
         self.addSubview(label)

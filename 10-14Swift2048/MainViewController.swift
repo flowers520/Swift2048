@@ -17,15 +17,25 @@ enum Animation2048Type
 
 class MainViewController: UIViewController {
 
+    //获取屏幕尺寸
+    let screen = UIScreen.mainScreen().bounds.size
     //游戏方格维度
-    var dimension: Int = 4
+    var dimension: Int = DEFAULT_DIMENSION {
+        didSet{
+            gmodel.dimension = dimension
+        }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     //游戏过关最大值
     var maxnumber: Int = 2048
 
     //数字格子的宽度
-    var width: CGFloat = 50
+    var width: CGFloat = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(DEFAULT_DIMENSION) - 5
     //格子与格子的间距
-    var padding: CGFloat = 6
+    var padding: CGFloat = 5
     //保存背景图数据
     var backgrounds: Array<UIView>!
 
@@ -48,8 +58,26 @@ class MainViewController: UIViewController {
         self.tileVals = Dictionary()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = UIColor(red: 205, green: 186, blue: 150, alpha: 0.8)
+        setupGameMap()
+        setupScoreLabels()
+        self.gmodel = GameModel(dimension: self.dimension, maxnumber: self.maxnumber, score:score, bestscore:bestscore)
+        for _ in 0...1
+        {
+            genNumber()
+        }
+        gmodel.printTiles()
+        setupSwipeGuestures()
+        setupButtons()
+        
+        
+        
     }
 
     func resetTapped()
@@ -79,44 +107,41 @@ class MainViewController: UIViewController {
         tileVals.removeAll(keepCapacity: true)
     }
 
+    
     func setupButtons()
     {
-        let btnreset = ViewFactory.createButton("重置", action: Selector("resetTapped"), sender:self)
-        btnreset.frame.origin.x = 50
-        btnreset.frame.origin.y = 450
+        let btnreset = ViewFactory.createButton("Reset", action: Selector("resetTapped"), sender:self)
+        btnreset.frame.origin.x = 0
+        btnreset.frame.origin.y = screen.height - 89
         self.view.addSubview(btnreset)
         
-        let btngen = ViewFactory.createButton("新数",
-            action:Selector("genTapped"),sender:self)
-        btngen.frame.origin.x = 170
-        btngen.frame.origin.y = 450
+        let btngen = ViewFactory.createButton("NewNumber",action:Selector("genTapped"),sender:self)
+        btngen.frame.origin.x = screen.width/2
+        btngen.frame.origin.y = screen.height - 89
         self.view.addSubview(btngen)
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    func setupScoreLabels()
+    {
+        score = ScoreView(stype: ScoreType.Common)
+        score.frame.origin = CGPointMake(0, 70)
+        score.changeScore(value: 0)
+        self.view.addSubview(score)
         
-        self.view.backgroundColor = UIColor.whiteColor()
-        setupGameMap()
-        setupScoreLabels()
-        self.gmodel = GameModel(dimension: self.dimension, maxnumber: self.maxnumber, score:score, bestscore:bestscore)
-        for _ in 0...1
-        {
-            genNumber()
-        }
-        gmodel.printTiles()
-        setupSwipeGuestures()
-        setupButtons()
-        
+        bestscore = ScoreView(stype: ScoreType.Best)
+        bestscore.frame.origin.x = screen.width/2
+        bestscore.frame.origin.y = 70
+        bestscore.changeScore(value: 0)
+        self.view.addSubview(bestscore)
     }
+    
+
     
     func setupGameMap()
     {
-        var x: CGFloat = 50
-        var y: CGFloat = 150
+        var x: CGFloat = 10
+        var y: CGFloat = (screen.height - screen.width - 70)/2 + 50
         
         for i in 0..<dimension
         {
@@ -138,19 +163,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    func setupScoreLabels()
-    {
-        score = ScoreView(stype: ScoreType.Common)
-        score.frame.origin = CGPointMake(50, 80)
-        score.changeScore(value: 0)
-        self.view.addSubview(score)
-        
-        bestscore = ScoreView(stype: ScoreType.Best)
-        bestscore.frame.origin.x = 170
-        bestscore.frame.origin.y = 80
-        bestscore.changeScore(value: 0)
-        self.view.addSubview(bestscore)
-    }
+
 
     func genNumber()
     {
@@ -330,7 +343,7 @@ class MainViewController: UIViewController {
     func insertTile(pos:(Int, Int), value: Int, atype: Animation2048Type)
     {
         let (row, col) = pos;
-        let x = 50 + CGFloat(col) * (width + padding)
+        let x = 10 + CGFloat(col) * (width + padding)
         let y = 150 + CGFloat(row) * (width + padding)
         
         let tile = TileView(pos: CGPointMake(x, y), width: width, value: value)

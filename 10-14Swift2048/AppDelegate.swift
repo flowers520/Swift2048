@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+let DEFAULT_DIMENSION = 4
+let DEFAULT_SCORE_THRESHOLD = 16
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let VC = MainTabViewController()
+        self.window?.rootViewController = VC
         return true
     }
 

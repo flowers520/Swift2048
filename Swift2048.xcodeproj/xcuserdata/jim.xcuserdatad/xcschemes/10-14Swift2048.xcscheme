@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "38024E011BCE8FD90073FE71"
-               BuildableName = "10-14Swift2048.app"
-               BlueprintName = "10-14Swift2048"
-               ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+               BuildableName = "Swift2048.app"
+               BlueprintName = "Swift2048"
+               ReferencedContainer = "container:Swift2048.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "38024E181BCE8FD90073FE71"
-               BuildableName = "10-14Swift2048Tests.xctest"
-               BlueprintName = "10-14Swift2048Tests"
-               ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+               BuildableName = "Swift2048.xctest"
+               BlueprintName = "Swift2048Tests"
+               ReferencedContainer = "container:Swift2048.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "38024E231BCE8FD90073FE71"
-               BuildableName = "10-14Swift2048UITests.xctest"
-               BlueprintName = "10-14Swift2048UITests"
-               ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+               BuildableName = "Swift2048.xctest"
+               BlueprintName = "Swift2048UITests"
+               ReferencedContainer = "container:Swift2048.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38024E011BCE8FD90073FE71"
-            BuildableName = "10-14Swift2048.app"
-            BlueprintName = "10-14Swift2048"
-            ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+            BuildableName = "Swift2048.app"
+            BlueprintName = "Swift2048"
+            ReferencedContainer = "container:Swift2048.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38024E011BCE8FD90073FE71"
-            BuildableName = "10-14Swift2048.app"
-            BlueprintName = "10-14Swift2048"
-            ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+            BuildableName = "Swift2048.app"
+            BlueprintName = "Swift2048"
+            ReferencedContainer = "container:Swift2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "38024E011BCE8FD90073FE71"
-            BuildableName = "10-14Swift2048.app"
-            BlueprintName = "10-14Swift2048"
-            ReferencedContainer = "container:10-14Swift2048.xcodeproj">
+            BuildableName = "Swift2048.app"
+            BlueprintName = "Swift2048"
+            ReferencedContainer = "container:Swift2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
