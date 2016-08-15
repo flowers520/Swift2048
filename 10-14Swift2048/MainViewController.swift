@@ -21,8 +21,11 @@ class MainViewController: UIViewController {
     let screen = UIScreen.mainScreen().bounds.size
     //游戏方格维度
     var dimension: Int = DEFAULT_DIMENSION {
+        //变化后做
         didSet{
             gmodel.dimension = dimension
+            
+            width = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(dimension) - CGFloat(5)
         }
     }
 
@@ -33,7 +36,13 @@ class MainViewController: UIViewController {
     var maxnumber: Int = 2048
 
     //数字格子的宽度
-    var width: CGFloat = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(DEFAULT_DIMENSION) - 5
+    var width: CGFloat = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(DEFAULT_DIMENSION) - CGFloat(5)
+//        {
+//        //计算属性
+//        get{
+//            return (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(dimension) - CGFloat(5)
+//        }
+//    }
     //格子与格子的间距
     var padding: CGFloat = 5
     //保存背景图数据
@@ -56,6 +65,7 @@ class MainViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.tiles = Dictionary()
         self.tileVals = Dictionary()
+        
     }
 
 
@@ -76,7 +86,8 @@ class MainViewController: UIViewController {
         setupSwipeGuestures()
         setupButtons()
         
-        
+//        print("MainViewController\(dimension)")
+//        print("MainVC\(width)")
         
     }
 
@@ -105,6 +116,13 @@ class MainViewController: UIViewController {
         }
         tiles.removeAll(keepCapacity: true)
         tileVals.removeAll(keepCapacity: true)
+        
+        //背景图
+        for background in backgrounds {
+            background.removeFromSuperview()
+        }
+        
+        setupGameMap()
     }
 
     
@@ -145,11 +163,11 @@ class MainViewController: UIViewController {
         
         for i in 0..<dimension
         {
-            print(i)
+            print("setupGameMap-i-\(i)")
             y = 150
             for j in 0..<dimension
             {
-                print(j)
+                print("setupGameMap-j-\(j)")
                 //初始化视图
                 let backGround = UIView(frame: CGRectMake(x, y, width, width))
                 backGround.backgroundColor = UIColor.darkGrayColor()
@@ -159,8 +177,9 @@ class MainViewController: UIViewController {
                 backgrounds.append(backGround)
                 y += padding + width
             }
-            x += padding+width
+            x += padding + width
         }
+        
     }
 
 

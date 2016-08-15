@@ -10,16 +10,19 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
 
+    var viewMain: MainViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         // 一共包含两个视图
-        let viewMain = MainViewController()
+        viewMain = MainViewController()
         viewMain.title = "2048"
-        let viewSetting = SettingViewController()
+        let viewSetting = SettingViewController(mainview: viewMain)
         viewSetting.title = "Setup"
+        
+        
         let main = UINavigationController(rootViewController: viewMain)
         let setting = UINavigationController(rootViewController: viewSetting)
         

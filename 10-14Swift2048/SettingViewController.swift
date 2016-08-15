@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UIViewController, UITextFieldDelegate {
 
     var segDimension: UISegmentedControl!
-    var mainVC = MainViewController()
+    var mainVC: MainViewController! 
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
@@ -52,11 +52,11 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(labelNum)
         
         //创建分段单选控件
-        let segDimension = ViewFactory.createSegment(["3x3", "4x4", "5x5"], action: "dimensionChanged:", sender: self)
+        segDimension = ViewFactory.createSegment(["3x3", "4x4", "5x5", "6x6"], action: Selector("dimensionChanged:"), sender: self)
         segDimension.frame = CGRect(x: 80, y: 200, width: 200, height: 30)
         self.view.addSubview(segDimension)
         
-        let dman = [3:0,4:1,5:2]
+        let dman = [3:0, 4:1, 5:2, 6:3]
         
         segDimension.selectedSegmentIndex = dman[mainVC.dimension]!
         
@@ -67,8 +67,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     }
 
     func dimensionChanged(sender: SettingViewController){
-        var segVals = [3,4,5]
-        mainVC.dimension  = segVals[self.segDimension.selectedSegmentIndex]
+        var segVals = [3, 4, 5, 6]
+        
+        mainVC.dimension = segVals[segDimension.selectedSegmentIndex]
+//        print("mainvc.dimension\(mainVC.dimension)")
         mainVC.resetTapped()
     }
 
