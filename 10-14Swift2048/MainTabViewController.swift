@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MainTabViewController: UITabBarController {
 
     var viewMain: MainViewController!
@@ -22,12 +23,16 @@ class MainTabViewController: UITabBarController {
         let viewSetting = SettingViewController(mainview: viewMain)
         viewSetting.title = "Setup"
         
+        let viewScore = ScoreViewController()
+        viewScore.title = "Score"
+        
+        let score = UINavigationController(rootViewController: viewScore)
         
         let main = UINavigationController(rootViewController: viewMain)
         let setting = UINavigationController(rootViewController: viewSetting)
         
         self.viewControllers = [
-            main, setting
+            main, setting, score
         ]
         
         // 默认选中的是游戏主界面视图

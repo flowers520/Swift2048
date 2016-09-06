@@ -35,7 +35,7 @@ class ScoreView: UIView, ScoreViewProtocol {
         label = UILabel(frame: defaultFrame)
         label.textAlignment = NSTextAlignment.Center
         super.init(frame: defaultFrame)
-        self.stype = (stype == ScoreType.Common ? "分数" : "最高分")
+        self.stype = (stype == ScoreType.Common ? "Score" : "BestScore")
         backgroundColor = UIColor.clearColor()
         label.font = UIFont(name: "微软雅黑", size: 16)
         label.textColor = UIColor.whiteColor()

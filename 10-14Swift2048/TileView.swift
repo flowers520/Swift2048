@@ -30,7 +30,8 @@ class TileView: UIView {
         256: UIColor.cyanColor(),
         512: UIColor.lightGrayColor(),
         1024: UIColor.magentaColor(),
-        2048: UIColor.blackColor()
+        2048: UIColor.blackColor(),
+        4096: UIColor.grayColor()
     ]
     
     //在设置值时，更新视图的背景和文字

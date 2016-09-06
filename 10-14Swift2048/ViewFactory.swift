@@ -59,7 +59,7 @@ class ViewFactory{
         textField.textColor = UIColor.blackColor()
         textField.text = value
         textField.borderStyle = UITextBorderStyle.RoundedRect
-        textField.placeholder = "输入阈值..."
+        textField.placeholder = "Input Threahold..."//输入阈值
         textField.keyboardType = UIKeyboardType.NumberPad
         textField.resignFirstResponder()
         textField.adjustsFontSizeToFitWidth = true

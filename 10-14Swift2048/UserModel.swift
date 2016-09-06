@@ -8,10 +8,15 @@
 
 import Foundation
 
-/*class UserModel {
-    var db: SQLiteDB!
-    class func get_uuid() -> String {
-        var userid = NSUserDefaults.standardUserDefaults().stringForKey("swift2048user")
-        if
-    }
-}*/
+//class UserModel {
+//    var db: SQLiteDB!
+//    class func get_uuid() -> String {
+//        var userid = NSUserDefaults.standardUserDefaults().stringForKey("swift2048user")
+//        if(userid != nil){
+//            return userid!
+//        }else{
+//            var uuid_ref = CFUUIDCreate(nil)
+//            var 
+//        }
+//    }
+//}

@@ -19,6 +19,7 @@
 		38024E3F1BCEA08D0073FE71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38024E3E1BCEA08D0073FE71 /* MainViewController.swift */; };
 		38024E411BCEAD700073FE71 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38024E401BCEAD700073FE71 /* ScoreView.swift */; };
 		38024E491BCF39120073FE71 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38024E481BCF39120073FE71 /* ViewFactory.swift */; };
+		380321321D66AA19001BE9EA /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380321311D66AA19001BE9EA /* ScoreViewController.swift */; };
 		38089A971BCFE773006D059E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38089A961BCFE773006D059E /* TileView.swift */; };
 		381608801D5F37DA000B8828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3816087F1D5F37DA000B8828 /* Main.storyboard */; };
 		388BEC351D61E41200EEDCDC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -62,6 +63,7 @@
 		38024E3E1BCEA08D0073FE71 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		38024E401BCEAD700073FE71 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		38024E481BCF39120073FE71 /* ViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		380321311D66AA19001BE9EA /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		38089A961BCFE773006D059E /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		3816087F1D5F37DA000B8828 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -178,6 +180,7 @@
 				38024E3A1BCE9E6B0073FE71 /* MainTabViewController.swift */,
 				38024E3C1BCE9F3E0073FE71 /* SettingViewController.swift */,
 				38024E3E1BCEA08D0073FE71 /* MainViewController.swift */,
+				380321311D66AA19001BE9EA /* ScoreViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				38089A971BCFE773006D059E /* TileView.swift in Sources */,
 				38024E491BCF39120073FE71 /* ViewFactory.swift in Sources */,
 				38BCD6D81BD75C37004BD0AA /* UserModel.swift in Sources */,
+				380321321D66AA19001BE9EA /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
