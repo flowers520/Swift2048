@@ -9,9 +9,10 @@
 import UIKit
 
 
-class MainTabViewController: UITabBarController {
+class MainTabViewController: UITabBarController, KKColorListViewControllerDelegate {
 
     var viewMain: MainViewController!
+    var viewColor: KKColorListViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,25 +22,40 @@ class MainTabViewController: UITabBarController {
         viewMain = MainViewController()
         viewMain.title = "2048"
         let viewSetting = SettingViewController(mainview: viewMain)
-        viewSetting.title = "Setup"
+        viewSetting.title = "设置"
+        
+        viewColor = KKColorListViewController(schemeType: KKColorsSchemeType.Crayola)
+        viewColor.title = "背景"
+        viewColor.headerTitle = "选择背景颜色"
+        viewColor.delegate = self
         
         let viewScore = ScoreViewController()
-        viewScore.title = "Score"
+        viewScore.title = "分数"
         
+        let color = UINavigationController(rootViewController: viewColor)
         let score = UINavigationController(rootViewController: viewScore)
         
         let main = UINavigationController(rootViewController: viewMain)
         let setting = UINavigationController(rootViewController: viewSetting)
         
         self.viewControllers = [
-            main, setting, score
+            main, setting, color, score
         ]
         
         // 默认选中的是游戏主界面视图
         self.selectedIndex = 0
     }
 
+    //颜色处理选中
+    func colorListController(controller: KKColorListViewController!, didSelectColor color: KKColor!) {
+        viewMain.view.backgroundColor = color.uiColor()
+        self.selectedIndex = 0
+    }
 
+    //颜色取消选中
+    func colorListPickerDidComplete(controller: KKColorListViewController!) {
+        self.selectedIndex = 0
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

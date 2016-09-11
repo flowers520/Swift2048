@@ -20,6 +20,20 @@
 		38024E411BCEAD700073FE71 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38024E401BCEAD700073FE71 /* ScoreView.swift */; };
 		38024E491BCF39120073FE71 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38024E481BCF39120073FE71 /* ViewFactory.swift */; };
 		380321321D66AA19001BE9EA /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380321311D66AA19001BE9EA /* ScoreViewController.swift */; };
+		380552081D85FC2A006953ED /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 380551F01D85FC2A006953ED /* UIColor+CustomColors.m */; };
+		380552091D85FC2A006953ED /* UIView+KKToolKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 380551F31D85FC2A006953ED /* UIView+KKToolKitAdditions.m */; };
+		3805520A1D85FC2A006953ED /* KKColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 380551F61D85FC2A006953ED /* KKColorCell.m */; };
+		3805520B1D85FC2A006953ED /* KKColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380551F71D85FC2A006953ED /* KKColorCell.xib */; };
+		3805520C1D85FC2A006953ED /* KKColorsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 380551F91D85FC2A006953ED /* KKColorsHeaderView.m */; };
+		3805520D1D85FC2A006953ED /* KKColorsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380551FA1D85FC2A006953ED /* KKColorsHeaderView.xib */; };
+		3805520E1D85FC2A006953ED /* KKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 380551FD1D85FC2A006953ED /* KKColor.m */; };
+		3805520F1D85FC2A006953ED /* KKColorsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 380552001D85FC2A006953ED /* KKColorsLoader.m */; };
+		380552101D85FC2A006953ED /* KKColorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 380552041D85FC2A006953ED /* KKColorListViewController.m */; };
+		380552111D85FC2A006953ED /* colors_crayola.plist in Resources */ = {isa = PBXBuildFile; fileRef = 380552061D85FC2A006953ED /* colors_crayola.plist */; };
+		380552121D85FC2A006953ED /* colors_pantone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 380552071D85FC2A006953ED /* colors_pantone.plist */; };
+		380552181D8604D6006953ED /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 380552171D8604D6006953ED /* Bridge.m */; };
+		3805521B1D8604E1006953ED /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380552191D8604E1006953ED /* SQLiteDB.swift */; };
+		3805521C1D8604E1006953ED /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805521A1D8604E1006953ED /* String-Extras.swift */; };
 		38089A971BCFE773006D059E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38089A961BCFE773006D059E /* TileView.swift */; };
 		381608801D5F37DA000B8828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3816087F1D5F37DA000B8828 /* Main.storyboard */; };
 		388BEC351D61E41200EEDCDC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -64,10 +78,34 @@
 		38024E401BCEAD700073FE71 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		38024E481BCF39120073FE71 /* ViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		380321311D66AA19001BE9EA /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		380551EF1D85FC2A006953ED /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
+		380551F01D85FC2A006953ED /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
+		380551F21D85FC2A006953ED /* UIView+KKToolKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KKToolKitAdditions.h"; sourceTree = "<group>"; };
+		380551F31D85FC2A006953ED /* UIView+KKToolKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KKToolKitAdditions.m"; sourceTree = "<group>"; };
+		380551F51D85FC2A006953ED /* KKColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorCell.h; sourceTree = "<group>"; };
+		380551F61D85FC2A006953ED /* KKColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKColorCell.m; sourceTree = "<group>"; };
+		380551F71D85FC2A006953ED /* KKColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KKColorCell.xib; sourceTree = "<group>"; };
+		380551F81D85FC2A006953ED /* KKColorsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorsHeaderView.h; sourceTree = "<group>"; };
+		380551F91D85FC2A006953ED /* KKColorsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKColorsHeaderView.m; sourceTree = "<group>"; };
+		380551FA1D85FC2A006953ED /* KKColorsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KKColorsHeaderView.xib; sourceTree = "<group>"; };
+		380551FC1D85FC2A006953ED /* KKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColor.h; sourceTree = "<group>"; };
+		380551FD1D85FC2A006953ED /* KKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKColor.m; sourceTree = "<group>"; };
+		380551FE1D85FC2A006953ED /* KKColorListPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorListPicker.h; sourceTree = "<group>"; };
+		380551FF1D85FC2A006953ED /* KKColorsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorsLoader.h; sourceTree = "<group>"; };
+		380552001D85FC2A006953ED /* KKColorsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKColorsLoader.m; sourceTree = "<group>"; };
+		380552011D85FC2A006953ED /* KKColorsSchemeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorsSchemeType.h; sourceTree = "<group>"; };
+		380552031D85FC2A006953ED /* KKColorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKColorListViewController.h; sourceTree = "<group>"; };
+		380552041D85FC2A006953ED /* KKColorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKColorListViewController.m; sourceTree = "<group>"; };
+		380552061D85FC2A006953ED /* colors_crayola.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colors_crayola.plist; sourceTree = "<group>"; };
+		380552071D85FC2A006953ED /* colors_pantone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colors_pantone.plist; sourceTree = "<group>"; };
+		380552151D860370006953ED /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		380552161D8604D6006953ED /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		380552171D8604D6006953ED /* Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bridge.m; sourceTree = "<group>"; };
+		380552191D8604E1006953ED /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		3805521A1D8604E1006953ED /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		38089A961BCFE773006D059E /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		3816087F1D5F37DA000B8828 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		388BEC361D61ECC000EEDCDC /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		38AA5D721BD1BC84008AEBFE /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		38BCD6D71BD75C37004BD0AA /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +162,7 @@
 			children = (
 				38024E051BCE8FD90073FE71 /* AppDelegate.swift */,
 				38024E071BCE8FD90073FE71 /* ViewController.swift */,
+				380551EC1D85FC2A006953ED /* KKColorListPicker */,
 				38BCD6DB1BD7C968004BD0AA /* SQLite */,
 				38BCD6D41BD75974004BD0AA /* controller */,
 				38BCD6D31BD75956004BD0AA /* view */,
@@ -153,6 +192,89 @@
 				38024E2A1BCE8FD90073FE71 /* Info.plist */,
 			);
 			path = "10-14Swift2048UITests";
+			sourceTree = "<group>";
+		};
+		380551EC1D85FC2A006953ED /* KKColorListPicker */ = {
+			isa = PBXGroup;
+			children = (
+				380551ED1D85FC2A006953ED /* Categories */,
+				380551F41D85FC2A006953ED /* Cells */,
+				380551FB1D85FC2A006953ED /* Classes */,
+				380552021D85FC2A006953ED /* Controllers */,
+				380552051D85FC2A006953ED /* Schemes */,
+			);
+			path = KKColorListPicker;
+			sourceTree = "<group>";
+		};
+		380551ED1D85FC2A006953ED /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				380551EE1D85FC2A006953ED /* UIColor */,
+				380551F11D85FC2A006953ED /* UIView */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		380551EE1D85FC2A006953ED /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				380551EF1D85FC2A006953ED /* UIColor+CustomColors.h */,
+				380551F01D85FC2A006953ED /* UIColor+CustomColors.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		380551F11D85FC2A006953ED /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				380551F21D85FC2A006953ED /* UIView+KKToolKitAdditions.h */,
+				380551F31D85FC2A006953ED /* UIView+KKToolKitAdditions.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		380551F41D85FC2A006953ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				380551F51D85FC2A006953ED /* KKColorCell.h */,
+				380551F61D85FC2A006953ED /* KKColorCell.m */,
+				380551F71D85FC2A006953ED /* KKColorCell.xib */,
+				380551F81D85FC2A006953ED /* KKColorsHeaderView.h */,
+				380551F91D85FC2A006953ED /* KKColorsHeaderView.m */,
+				380551FA1D85FC2A006953ED /* KKColorsHeaderView.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		380551FB1D85FC2A006953ED /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				380551FC1D85FC2A006953ED /* KKColor.h */,
+				380551FD1D85FC2A006953ED /* KKColor.m */,
+				380551FE1D85FC2A006953ED /* KKColorListPicker.h */,
+				380551FF1D85FC2A006953ED /* KKColorsLoader.h */,
+				380552001D85FC2A006953ED /* KKColorsLoader.m */,
+				380552011D85FC2A006953ED /* KKColorsSchemeType.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		380552021D85FC2A006953ED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				380552031D85FC2A006953ED /* KKColorListViewController.h */,
+				380552041D85FC2A006953ED /* KKColorListViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		380552051D85FC2A006953ED /* Schemes */ = {
+			isa = PBXGroup;
+			children = (
+				380552061D85FC2A006953ED /* colors_crayola.plist */,
+				380552071D85FC2A006953ED /* colors_pantone.plist */,
+			);
+			path = Schemes;
 			sourceTree = "<group>";
 		};
 		38AA5D741BD489B9008AEBFE /* model */ = {
@@ -188,7 +310,11 @@
 		38BCD6DB1BD7C968004BD0AA /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
-				388BEC361D61ECC000EEDCDC /* Bridging-Header.h */,
+				380552191D8604E1006953ED /* SQLiteDB.swift */,
+				3805521A1D8604E1006953ED /* String-Extras.swift */,
+				380552161D8604D6006953ED /* Bridge.h */,
+				380552171D8604D6006953ED /* Bridge.m */,
+				380552151D860370006953ED /* BridgingHeader.h */,
 			);
 			name = SQLite;
 			sourceTree = "<group>";
@@ -297,8 +423,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380552121D85FC2A006953ED /* colors_pantone.plist in Resources */,
 				381608801D5F37DA000B8828 /* Main.storyboard in Resources */,
+				3805520B1D85FC2A006953ED /* KKColorCell.xib in Resources */,
+				3805520D1D85FC2A006953ED /* KKColorsHeaderView.xib in Resources */,
 				38024E131BCE8FD90073FE71 /* LaunchScreen.storyboard in Resources */,
+				380552111D85FC2A006953ED /* colors_crayola.plist in Resources */,
 				38024E101BCE8FD90073FE71 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,18 +454,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3805520F1D85FC2A006953ED /* KKColorsLoader.m in Sources */,
 				38024E3D1BCE9F3E0073FE71 /* SettingViewController.swift in Sources */,
 				38024E081BCE8FD90073FE71 /* ViewController.swift in Sources */,
 				38024E3B1BCE9E6B0073FE71 /* MainTabViewController.swift in Sources */,
+				3805520A1D85FC2A006953ED /* KKColorCell.m in Sources */,
 				38024E3F1BCEA08D0073FE71 /* MainViewController.swift in Sources */,
+				3805521B1D8604E1006953ED /* SQLiteDB.swift in Sources */,
 				38024E411BCEAD700073FE71 /* ScoreView.swift in Sources */,
+				380552081D85FC2A006953ED /* UIColor+CustomColors.m in Sources */,
 				38AA5D731BD1BC84008AEBFE /* GameModel.swift in Sources */,
 				38024E061BCE8FD90073FE71 /* AppDelegate.swift in Sources */,
 				38024E0E1BCE8FD90073FE71 /* _0_14Swift2048.xcdatamodeld in Sources */,
+				3805520E1D85FC2A006953ED /* KKColor.m in Sources */,
+				380552181D8604D6006953ED /* Bridge.m in Sources */,
 				38089A971BCFE773006D059E /* TileView.swift in Sources */,
+				380552101D85FC2A006953ED /* KKColorListViewController.m in Sources */,
+				3805520C1D85FC2A006953ED /* KKColorsHeaderView.m in Sources */,
 				38024E491BCF39120073FE71 /* ViewFactory.swift in Sources */,
 				38BCD6D81BD75C37004BD0AA /* UserModel.swift in Sources */,
 				380321321D66AA19001BE9EA /* ScoreViewController.swift in Sources */,
+				380552091D85FC2A006953ED /* UIView+KKToolKitAdditions.m in Sources */,
+				3805521C1D8604E1006953ED /* String-Extras.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +614,7 @@
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Tom.Swift2048;
 				PRODUCT_NAME = Swift2048;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/Documents/xcode/10-14Swift2048/10-14Swift2048/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/Documents/xcode/10-14Swift2048/10-14Swift2048/BridgingHeader.h";
 			};
 			name = Debug;
 		};
@@ -489,7 +629,7 @@
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Tom.Swift2048;
 				PRODUCT_NAME = Swift2048;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/Documents/xcode/10-14Swift2048/10-14Swift2048/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/Documents/xcode/10-14Swift2048/10-14Swift2048/BridgingHeader.h";
 			};
 			name = Release;
 		};

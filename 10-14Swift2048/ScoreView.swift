@@ -24,9 +24,9 @@ class ScoreView: UIView, ScoreViewProtocol {
     let defaultFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width/2, 40)
     var stype: String! //显示最高分还是分数
     var score: Int = 0{
-        didSet{
+        willSet{
             //分数变化，标签内容也要变化
-            label.text = "\(stype):\(score)"
+            label.text = "\(stype):\(newValue)"
         }
     }
     
@@ -35,7 +35,7 @@ class ScoreView: UIView, ScoreViewProtocol {
         label = UILabel(frame: defaultFrame)
         label.textAlignment = NSTextAlignment.Center
         super.init(frame: defaultFrame)
-        self.stype = (stype == ScoreType.Common ? "Score" : "BestScore")
+        self.stype = (stype == ScoreType.Common ? "分数" : "最高分")
         backgroundColor = UIColor.clearColor()
         label.font = UIFont(name: "微软雅黑", size: 16)
         label.textColor = UIColor.whiteColor()

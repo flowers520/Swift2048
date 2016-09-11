@@ -102,7 +102,7 @@ class GameModel {
         let val = tiles[index]
         if(val > 0)
         {
-            print("该位置(\(row), \(col)已经有值了)")
+//            print("该位置(\(row), \(col)已经有值了)")
             return false
         }
         tiles[index] = value

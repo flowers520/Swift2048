@@ -94,7 +94,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     //手势重置
     func resetTapped()
     {
-        print("reset")
+//        print("reset")
         resetUI()
         gmodel.initTiles()
         for _ in 0..<2
@@ -129,12 +129,12 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     
     func setupButtons()
     {
-        let btnreset = ViewFactory.createButton("Reset", action: Selector("resetTapped"), sender:self)
+        let btnreset = ViewFactory.createButton("重置", action: Selector("resetTapped"), sender:self)
         btnreset.frame.origin.x = 0
         btnreset.frame.origin.y = screen.height - 89
         self.view.addSubview(btnreset)
         
-        let btngen = ViewFactory.createButton("NewNumber",action:Selector("genTapped"),sender:self)
+        let btngen = ViewFactory.createButton("新数",action:Selector("genTapped"),sender:self)
         btngen.frame.origin.x = screen.width/2
         btngen.frame.origin.y = screen.height - 89
         self.view.addSubview(btngen)
@@ -164,11 +164,11 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         
         for i in 0..<dimension
         {
-            print("setupGameMap-i-\(i)")
+//            print("setupGameMap-i-\(i)")
             y = 150
             for j in 0..<dimension
             {
-                print("setupGameMap-j-\(j)")
+//                print("setupGameMap-j-\(j)")
                 //初始化视图
                 let backGround = UIView(frame: CGRectMake(x, y, width, width))
                 backGround.backgroundColor = UIColor.darkGrayColor()
@@ -206,14 +206,14 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         if(gmodel.isFull())
         {
             print("位置已经满了")
-            let alertcontroller = UIAlertController(title: "Game Over", message: "You are GG !", preferredStyle: .Alert)
-            alertcontroller.addAction(UIAlertAction(title: "Restart", style: UIAlertActionStyle.Default, handler: {
+            let alertcontroller = UIAlertController(title: "游戏结束", message: "你已经GG了", preferredStyle: .Alert)
+            alertcontroller.addAction(UIAlertAction(title: "重新开始", style: UIAlertActionStyle.Default, handler: {
                 action in
                     //重新开始
                     self.resetUI()
                     self.resetTapped()
             }))
-            alertcontroller.addAction(UIAlertAction(title: "Give Up", style: UIAlertActionStyle.Cancel, handler: {
+            alertcontroller.addAction(UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel, handler: {
                 action in
                     self.presentViewController(ViewController(), animated: true, completion: nil)
             }))
@@ -259,16 +259,16 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         self.view.addGestureRecognizer(rightSwipe)
     }
     
-    func _showTip(direction: String)
-    {
-        let alertController = UIAlertController(title: "提示", message: "你刚刚向\(direction)滑动了！", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "确定", style: .Default, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
+//    func _showTip(direction: String)
+//    {
+//        let alertController = UIAlertController(title: "提示", message: "你刚刚向\(direction)滑动了！", preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "确定", style: .Default, handler: nil))
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//    }
     
     func swipeUp()
     {
-        print("swipeUp")
+//        print("swipeUp")
         //_showTip("上")
         gmodel.reflowUp()
         gmodel.mergeUp()
@@ -282,7 +282,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     
     func swipeDown()
     {
-        print("swipeDown")
+//        print("swipeDown")
         //_showTip("下")
         gmodel.reflowDown()
         gmodel.mergeDown()
@@ -297,7 +297,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     
     func swipeLeft()
     {
-        print("swipeLeft")
+//        print("swipeLeft")
        // _showTip("左")
         gmodel.reflowLeft()
         gmodel.mergeLeft()
@@ -312,7 +312,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     
     func swipeRight()
     {
-        print("swipeRight")
+//        print("swipeRight")
         //_showTip("右")
         gmodel.reflowRight()
         gmodel.mergeRight()
@@ -368,6 +368,21 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
                     //如果相等，当然什么也不用做了
                 }
             }
+        }
+        if(gmodel.isSuccess())
+        {
+            let alertController = UIAlertController(title: "闯关成功", message: "嘿，朋友你装逼成功了", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "重新开始", style: .Default, handler:{
+                action in
+                //重新开始
+                self.resetUI()
+                self.resetTapped()
+            }))
+            alertController.addAction(UIAlertAction(title: "退出游戏", style: .Cancel, handler: {
+                action in
+                    self.presentViewController(ViewController(), animated: true, completion: nil)
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
 

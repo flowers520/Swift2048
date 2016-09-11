@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     //setup
     func setup(){
         startBtn = UIButton(frame: CGRectMake((screen.width-100)/2, (screen.height-20)/2, 100, 20))
-        startBtn.setTitle("Play Game", forState: .Normal)
+        startBtn.setTitle("开始游戏", forState: .Normal)
         startBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
         startBtn.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         startBtn.addTarget(self, action: Selector("startGame:"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -37,12 +37,12 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     func startGame(sender: UIButton!)
     {
         
-        let alertController = UIAlertController(title: "start", message: "Game is start, Are you ready?", preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "Go", style: UIAlertActionStyle.Default, handler: {
+        let alertController = UIAlertController(title: "游戏开始", message: "游戏即将开始你准备好了吗", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "开始", style: UIAlertActionStyle.Default, handler: {
             action in
             self.presentViewController(MainTabViewController(), animated: true, completion: nil)
         }))
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: {
+        alertController.addAction(UIAlertAction(title: "退出", style: UIAlertActionStyle.Cancel, handler: {
             action in
             self.presentViewController(ViewController(), animated: false, completion: nil)
         }))
