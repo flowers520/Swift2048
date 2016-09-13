@@ -8,6 +8,12 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     let screen = UIScreen.mainScreen().bounds.size
     var tableView: UITableView!
     var gameModel: GameModel!
+    
+    var gameScore = 0{
+        didSet{
+            gameScore = gameBestScore.count
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +41,32 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //返回行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        print("gameBestScore: \(gameBestScore.count)")
+        return gameScore
     }
     
     //单元格
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier: NSString = "cell"
         //        let cellIdentifier: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        let cell: UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier as String)
-        cell.textLabel?.text = "\(indexPath.row)"
+        var cell: UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier as String)
+        //判断表格是否为空
+        if(cell == ""){
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier as String)
+            cell.backgroundColor = UIColor.clearColor()
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+        }
+        
+        cell.textLabel?.text = "分数：\(gameBestScore.objectAtIndex(indexPath.row))"
+        cell.detailTextLabel?.text = "时间：\(gameTime.objectAtIndex(indexPath.row))"
         
         return cell
     }
     //滑动删除要实现的方法
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        gameBestScore.removeObjectAtIndex(indexPath.row)
+        gameTime.removeObjectAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
     }
     
@@ -60,9 +78,19 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //修改删除按钮
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
-        return "delete"
+        return "删除"
     }
     
+    //设置cell的显示动画
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        //设置cell的显示动画为3d缩放
+        //xy方向缩放的初始值为0.1
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        //设置动画时间为0.25秒，xy缩放的最终值为1
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        })
+    }
     /*
     // MARK: - Navigation
 

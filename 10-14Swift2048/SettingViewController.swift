@@ -47,9 +47,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     func setupControls()
     {
         //创建文本输入框
-        textNum = ViewFactory.createtextField(String(mainVC.maxnumber), action: Selector("numChanged"), sender: self)
+        textNum = ViewFactory.createtextField(String(self.mainVC.maxnumber), action: Selector("numChanged"), sender: self)
         textNum.frame = CGRect(x: 80, y: 100, width: 200, height: 30)
-        textNum.returnKeyType = UIReturnKeyType.Done
         self.view.addSubview(textNum)
         
         let labelNum = ViewFactory.createLabel("阀值：")
@@ -78,6 +77,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         if(textField.text != "\(mainVC.maxnumber)"){
             let num = Int(textField.text!)
             mainVC.maxnumber = num!
+            print("settingViewcontroller\(num)")
             
         }
         if(textField.text == ""){
@@ -87,6 +87,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
+    
     
     //添加手势点击是软键盘失去焦点
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

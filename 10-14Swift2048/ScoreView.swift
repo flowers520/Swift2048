@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 enum ScoreType{
     case Common // 普通分数面板
     case Best  // 最高分面板

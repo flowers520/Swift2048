@@ -11,6 +11,9 @@ import Foundation
 //闭包传值
 //typealias cloureScore = (title: String) -> Void
 
+
+
+
 class GameModel {
 //    //定义闭包
 //    var cloureScoreCallBack: cloureScore!
@@ -284,6 +287,7 @@ class GameModel {
     //分数值变化
     func changeScore(value: Int){
         score += value
+//        print("changeScore:\(score)")
         if(bestscore < score){
             bestscore = score
         }
@@ -306,8 +310,9 @@ class GameModel {
                 {
                     //将数字合并到上面行的位置，下面的数字清空
                     mtiles[index - self.dimension] = mtiles[index] * 2
-                    mtiles[index] = 0
                     changeScore(mtiles[index]*2)
+                    mtiles[index] = 0
+                    
                 }
             }
         }
@@ -330,8 +335,9 @@ class GameModel {
                 {
                     //将叠加合并后的结果放置到下一行。上一行的数字清空
                     mtiles[index+self.dimension] = mtiles[index] * 2
-                    mtiles[index] = 0
                     changeScore(mtiles[index]*2)
+                    mtiles[index] = 0
+                    
                 }
             }
         }
@@ -354,8 +360,9 @@ class GameModel {
                 {
                     //叠加合并到左边一列，右边一列当前位置上的数字清空
                     mtiles[index-1] = mtiles[index] * 2
-                    mtiles[index] = 0
                     changeScore(mtiles[index]*2)
+                    mtiles[index] = 0
+                    
                 }
             }
         }
@@ -378,8 +385,9 @@ class GameModel {
                 {
                     //叠加合并到右边一列，左边当前位置相应的数字清空
                     mtiles[index+1] = mtiles[index] * 2
-                    mtiles[index] = 0
                     changeScore(mtiles[index]*2)
+                    mtiles[index] = 0
+                    
                 }
             }
         }

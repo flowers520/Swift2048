@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 let DEFAULT_DIMENSION = 4
-let DEFAULT_SCORE_THRESHOLD = 16
+let DEFAULT_SCORE_THRESHOLD = 2048
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

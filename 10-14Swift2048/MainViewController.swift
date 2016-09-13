@@ -6,6 +6,10 @@
 //  Copyright © 2015年 jim. All rights reserved.
 //
 
+//定义两个全局变量
+var gameBestScore: NSMutableArray = NSMutableArray()
+var gameTime: NSMutableArray = NSMutableArray()
+
 import UIKit
 
 enum Animation2048Type
@@ -24,7 +28,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         //变化后做
         didSet{
             gmodel.dimension = dimension
-            
+            print("mainviewcontroller dimension\(dimension)")
             width = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(dimension) - CGFloat(5)
         }
     }
@@ -33,7 +37,13 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         super.init(coder: aDecoder)
     }
     //游戏过关最大值
-    var maxnumber: Int = 2048
+    var maxnumber: Int = DEFAULT_SCORE_THRESHOLD {
+        didSet{
+            print("mainviewController\(maxnumber)")
+            gmodel.maxnumber = maxnumber
+            
+        }
+    }
 
     //数字格子的宽度
     var width: CGFloat = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(DEFAULT_DIMENSION) - CGFloat(5)
@@ -122,7 +132,8 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         for background in backgrounds {
             background.removeFromSuperview()
         }
-        
+        self.score.score = 0
+        self.gmodel.score = 0
         setupGameMap()
     }
 
@@ -371,16 +382,37 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         }
         if(gmodel.isSuccess())
         {
-            let alertController = UIAlertController(title: "闯关成功", message: "嘿，朋友你装逼成功了", preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "重新开始", style: .Default, handler:{
+            let alertController = UIAlertController(title: "闯关成功", message: "嘿，朋友你装逼成功了，是否保存装逼数据？", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "是", style: .Default, handler:{
                 action in
+//                print("MainviewController:\(self.score.score)")
+                //保存分数
+                gameBestScore.addObject(self.gmodel.score)
+                //日期和字符串的转换
+                let dateFormatter: NSDateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yy//MM//dd HH:mm:ss"
+                //获取当前时间
+                let d: NSDate = NSDate()
+                let date: NSString = dateFormatter.stringFromDate(d)
+                //保存时间
+                gameTime.addObject(date)
+                
+                print(gameBestScore)
+                
                 //重新开始
                 self.resetUI()
                 self.resetTapped()
+                
+                
+                
             }))
-            alertController.addAction(UIAlertAction(title: "退出游戏", style: .Cancel, handler: {
+            alertController.addAction(UIAlertAction(title: "否", style: .Cancel, handler: {
                 action in
-                    self.presentViewController(ViewController(), animated: true, completion: nil)
+                
+                //重新开始
+                self.resetUI()
+                self.resetTapped()
+
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
         }

@@ -60,7 +60,8 @@ class ViewFactory{
         textField.text = value
         textField.borderStyle = UITextBorderStyle.RoundedRect
         textField.placeholder = "输入阈值..."//输入阈值
-        textField.keyboardType = UIKeyboardType.NumberPad
+        textField.keyboardType = UIKeyboardType.NumbersAndPunctuation
+        textField.returnKeyType = UIReturnKeyType.Done
         textField.resignFirstResponder()
         textField.adjustsFontSizeToFitWidth = true
         textField.delegate = sender
