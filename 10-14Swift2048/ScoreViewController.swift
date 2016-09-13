@@ -8,13 +8,19 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     let screen = UIScreen.mainScreen().bounds.size
     var tableView: UITableView!
     var gameModel: GameModel!
-    
-    var gameScore = 0{
-        didSet{
-            gameScore = gameBestScore.count
-        }
-    }
+    var mainVC: MainViewController!
 
+    
+//    var refreshControl: UIRefreshControl!
+//
+//    var gameScore = 0{
+//        didSet{
+//            gameScore = gameBestScore.count
+//        }
+//    }
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,17 +28,50 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.backgroundColor = UIColor(red: 205, green: 186, blue: 150, alpha: 0.8)
         
         setup()
+        
+    
     }
 
     //MARK: setup
     func setup(){
+        //tableview
         tableView = UITableView(frame: CGRectMake(0, 30, screen.width, screen.height-60))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(tableView)
+//        
+//        //refreshcontrol
+//        refreshControl.addTarget(self, action: Selector("refreshData"), forControlEvents: .ValueChanged)
+//        self.view.addSubview(refreshControl)
+//        
+//        mainVC.refresh = ({() -> Void in
+//            self.tableView.reloadData()
+//        })
+        
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+
+    
+//    //刷新数据
+//    func refreshData(){
+//        self.tableView.reloadData()
+//    }
+//    //下拉刷新
+//    func setupRefresh(){
+//        //添加刷新控件
+//        var control:UIRefreshControl!
+//        control.addTarget(self, action: Selector("refreshStateChange:"), forControlEvents: .ValueChanged)
+//        self.view.addSubview(control)
+//        //马上进入刷新状态，并不触发valueChange事件
+//        control.beginRefreshing()
+//        //加载数据
+//        self.re
+//        
+//    }
 
     //返回节数
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,7 +81,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
     //返回行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("gameBestScore: \(gameBestScore.count)")
-        return gameScore
+        return gameBestScore.count
     }
     
     //单元格
@@ -90,7 +129,10 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         UIView.animateWithDuration(0.25, animations: {
             cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
         })
+        
     }
+
+    
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,9 @@
 var gameBestScore: NSMutableArray = NSMutableArray()
 var gameTime: NSMutableArray = NSMutableArray()
 
+typealias cloureCallBack = (title: Int) -> Void
+typealias refreshData = () -> Void
+
 import UIKit
 
 enum Animation2048Type
@@ -21,6 +24,9 @@ enum Animation2048Type
 
 class MainViewController: UIViewController, UIAlertViewDelegate {
 
+    //定义闭包
+    var callBack: cloureCallBack!
+    var refresh: refreshData!
     //获取屏幕尺寸
     let screen = UIScreen.mainScreen().bounds.size
     //游戏方格维度
@@ -68,7 +74,6 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     var tiles: Dictionary<NSIndexPath, TileView>!
     //保存实际数字值的一个字典
     var tileVals: Dictionary<NSIndexPath, Int>!
-
     
     init() {
         self.backgrounds = Array<UIView>()
@@ -402,6 +407,10 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
                 //重新开始
                 self.resetUI()
                 self.resetTapped()
+                
+                self.callBack(title: 3)
+//                self.refresh()
+                
                 
                 
                 

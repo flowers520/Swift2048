@@ -12,13 +12,11 @@ class ViewController: UIViewController, UIAlertViewDelegate {
 
     let screen = UIScreen.mainScreen().bounds.size
     var startBtn:UIButton!
-    
+    var backImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.view.backgroundColor = UIColor.orangeColor()
         
         setup()
         
@@ -26,12 +24,23 @@ class ViewController: UIViewController, UIAlertViewDelegate {
 
     //setup
     func setup(){
-        startBtn = UIButton(frame: CGRectMake((screen.width-100)/2, (screen.height-20)/2, 100, 20))
+        //图片2048
+        backImage = UIImageView(frame: CGRectMake(0, 0, screen.width, screen.height))
+        backImage.image = UIImage(named: "screen")
+        self.view.addSubview(backImage)
+
+        
+        //开始
+        startBtn = UIButton(frame: CGRectMake((screen.width-100)/2, screen.height-200, 100, 20))
         startBtn.setTitle("开始游戏", forState: .Normal)
-        startBtn.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        startBtn.titleLabel?.font = UIFont(name: "Zapfino", size: 25.0)
+        startBtn.titleLabel?.font = UIFont.boldSystemFontOfSize(25.0)
+        startBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
         startBtn.setTitleColor(UIColor.blackColor(), forState: .Highlighted)
         startBtn.addTarget(self, action: Selector("startGame:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(startBtn)
+        
+
     }
     
     func startGame(sender: UIButton!)

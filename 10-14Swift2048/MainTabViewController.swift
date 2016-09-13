@@ -44,6 +44,10 @@ class MainTabViewController: UITabBarController, KKColorListViewControllerDelega
         
         // 默认选中的是游戏主界面视图
         self.selectedIndex = 0
+        
+        viewMain.callBack = ({ (title: Int) -> Void in
+            self.selectedIndex = title
+        })
     }
 
     //颜色处理选中
@@ -61,6 +65,7 @@ class MainTabViewController: UITabBarController, KKColorListViewControllerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

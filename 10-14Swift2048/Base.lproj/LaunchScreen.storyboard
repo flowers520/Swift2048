@@ -16,13 +16,22 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2048!" translatesAutoresizingMaskIntoConstraints="NO" id="mA7-Ic-GBg">
+                                <rect key="frame" x="0.0" y="144" width="375" height="379"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.68235294117647061" blue="0.035294117647058823" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.68235294117647061" blue="0.035294117647058823" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103.5" y="365.5"/>
+            <point key="canvasLocation" x="-25.5" y="320.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="2048!" width="256" height="256"/>
+    </resources>
 </document>
