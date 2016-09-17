@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 let DEFAULT_DIMENSION = 4
 let DEFAULT_SCORE_THRESHOLD = 2048
+let DEFAULT_BACKGROUND_COLOR = UIColor(red: 205, green: 186, blue: 150, alpha: 0.8)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        let VC = MainTabViewController()
 //        self.window?.rootViewController = VC
+        
+        //第一次启动，进入新手教程
+        
+        
         return true
     }
 

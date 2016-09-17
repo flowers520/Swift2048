@@ -32,13 +32,13 @@
 		380552111D85FC2A006953ED /* colors_crayola.plist in Resources */ = {isa = PBXBuildFile; fileRef = 380552061D85FC2A006953ED /* colors_crayola.plist */; };
 		380552121D85FC2A006953ED /* colors_pantone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 380552071D85FC2A006953ED /* colors_pantone.plist */; };
 		380552181D8604D6006953ED /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 380552171D8604D6006953ED /* Bridge.m */; };
-		3805521B1D8604E1006953ED /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380552191D8604E1006953ED /* SQLiteDB.swift */; };
-		3805521C1D8604E1006953ED /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805521A1D8604E1006953ED /* String-Extras.swift */; };
 		38089A971BCFE773006D059E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38089A961BCFE773006D059E /* TileView.swift */; };
 		381608801D5F37DA000B8828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3816087F1D5F37DA000B8828 /* Main.storyboard */; };
-		388BEC351D61E41200EEDCDC /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */; settings = {ATTRIBUTES = (Required, ); }; };
 		38AA5D731BD1BC84008AEBFE /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA5D721BD1BC84008AEBFE /* GameModel.swift */; };
 		38BCD6D81BD75C37004BD0AA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD6D71BD75C37004BD0AA /* UserModel.swift */; };
+		38D026CD1D8C2F2500776B15 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D026CB1D8C2F2500776B15 /* SQLiteDB.swift */; };
+		38D026CE1D8C2F2500776B15 /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D026CC1D8C2F2500776B15 /* String-Extras.swift */; };
+		38D026D71D8CEF3200776B15 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D026D61D8CEF3200776B15 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,13 +101,14 @@
 		380552151D860370006953ED /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		380552161D8604D6006953ED /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		380552171D8604D6006953ED /* Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bridge.m; sourceTree = "<group>"; };
-		380552191D8604E1006953ED /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
-		3805521A1D8604E1006953ED /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		38089A961BCFE773006D059E /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		3816087F1D5F37DA000B8828 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		385B46C01D8D268900AB9E45 /* swift2048.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = swift2048.db; sourceTree = "<group>"; };
 		38AA5D721BD1BC84008AEBFE /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		38BCD6D71BD75C37004BD0AA /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		38D026CB1D8C2F2500776B15 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		38D026CC1D8C2F2500776B15 /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
+		38D026D61D8CEF3200776B15 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				388BEC351D61E41200EEDCDC /* libsqlite3.0.tbd in Frameworks */,
+				38D026D71D8CEF3200776B15 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +140,8 @@
 		38024DF91BCE8FD90073FE71 = {
 			isa = PBXGroup;
 			children = (
-				388BEC341D61E41200EEDCDC /* libsqlite3.0.tbd */,
+				385B46C01D8D268900AB9E45 /* swift2048.db */,
+				38D026D61D8CEF3200776B15 /* libsqlite3.dylib */,
 				38024E041BCE8FD90073FE71 /* 10-14Swift2048 */,
 				38024E1C1BCE8FD90073FE71 /* 10-14Swift2048Tests */,
 				38024E271BCE8FD90073FE71 /* 10-14Swift2048UITests */,
@@ -310,8 +312,8 @@
 		38BCD6DB1BD7C968004BD0AA /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
-				380552191D8604E1006953ED /* SQLiteDB.swift */,
-				3805521A1D8604E1006953ED /* String-Extras.swift */,
+				38D026CB1D8C2F2500776B15 /* SQLiteDB.swift */,
+				38D026CC1D8C2F2500776B15 /* String-Extras.swift */,
 				380552161D8604D6006953ED /* Bridge.h */,
 				380552171D8604D6006953ED /* Bridge.m */,
 				380552151D860370006953ED /* BridgingHeader.h */,
@@ -460,7 +462,7 @@
 				38024E3B1BCE9E6B0073FE71 /* MainTabViewController.swift in Sources */,
 				3805520A1D85FC2A006953ED /* KKColorCell.m in Sources */,
 				38024E3F1BCEA08D0073FE71 /* MainViewController.swift in Sources */,
-				3805521B1D8604E1006953ED /* SQLiteDB.swift in Sources */,
+				38D026CD1D8C2F2500776B15 /* SQLiteDB.swift in Sources */,
 				38024E411BCEAD700073FE71 /* ScoreView.swift in Sources */,
 				380552081D85FC2A006953ED /* UIColor+CustomColors.m in Sources */,
 				38AA5D731BD1BC84008AEBFE /* GameModel.swift in Sources */,
@@ -475,7 +477,7 @@
 				38BCD6D81BD75C37004BD0AA /* UserModel.swift in Sources */,
 				380321321D66AA19001BE9EA /* ScoreViewController.swift in Sources */,
 				380552091D85FC2A006953ED /* UIView+KKToolKitAdditions.m in Sources */,
-				3805521C1D8604E1006953ED /* String-Extras.swift in Sources */,
+				38D026CE1D8C2F2500776B15 /* String-Extras.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

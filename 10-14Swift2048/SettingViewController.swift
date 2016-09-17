@@ -85,6 +85,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
             
         }
         
+        //保存过关数字到本地SQLite数据库
+        let usermodel = UserModel()
+        usermodel.save_maxnum(mainVC.maxnumber)
+        
         return true
     }
     
@@ -107,6 +111,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         mainVC.dimension = segVals[segDimension.selectedSegmentIndex]
 //        print("mainvc.dimension\(mainVC.dimension)")
         mainVC.resetTapped()
+        
+        //保存维度数据到本地SQlite数据库
+        let usermodel = UserModel()
+        usermodel.save_dimension(mainVC.dimension)
     }
 
     /*

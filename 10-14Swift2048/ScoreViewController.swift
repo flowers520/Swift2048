@@ -40,7 +40,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(tableView)
-//        
+       
 //        //refreshcontrol
 //        refreshControl.addTarget(self, action: Selector("refreshData"), forControlEvents: .ValueChanged)
 //        self.view.addSubview(refreshControl)

@@ -54,6 +54,11 @@ class MainTabViewController: UITabBarController, KKColorListViewControllerDelega
     func colorListController(controller: KKColorListViewController!, didSelectColor color: KKColor!) {
         viewMain.view.backgroundColor = color.uiColor()
         self.selectedIndex = 0
+        
+        //保存颜色数据到sqllite数据库中
+        let usermodel = UserModel()
+        usermodel.save_color(color.uiColor())
+        
     }
 
     //颜色取消选中

@@ -22,6 +22,12 @@ enum Animation2048Type
     case Merge  // 合并动画
 }
 
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
+}
+
 class MainViewController: UIViewController, UIAlertViewDelegate {
 
     //定义闭包
@@ -42,6 +48,8 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    
     //游戏过关最大值
     var maxnumber: Int = DEFAULT_SCORE_THRESHOLD {
         didSet{
@@ -50,6 +58,19 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
             
         }
     }
+//    
+//    //游戏结束保存时间
+//    var vcTime: NSString = ""{
+//        didSet{
+//            //日期和字符串的转换
+//            let dateFormatter: NSDateFormatter = NSDateFormatter()
+//            dateFormatter.dateFormat = "yy//MM//dd HH:mm:ss"
+//            //获取当前时间
+//            let d: NSDate = NSDate()
+//            let date: NSString = dateFormatter.stringFromDate(d)
+//            vcTime = date
+//        }
+//    }
 
     //数字格子的宽度
     var width: CGFloat = (UIScreen.mainScreen().bounds.width - CGFloat(15)) / CGFloat(DEFAULT_DIMENSION) - CGFloat(5)
@@ -77,10 +98,18 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
     
     init() {
         self.backgrounds = Array<UIView>()
-        super.init(nibName: nil, bundle: nil)
+        
+        let user = UserModel(dimension: dimension, maxnum: maxnumber, backgroundColor: UIColor.whiteColor())
+        
+        var data: Dictionary<String, String> = user.get_userdata()
+        self.dimension = Int(data["dimension"]!)!
+        self.maxnumber = Int(data["maxnum"]!)!
+        print(data)
+        
+        
         self.tiles = Dictionary()
         self.tileVals = Dictionary()
-        
+        super.init(nibName: nil, bundle: nil)
     }
 
 
@@ -89,17 +118,29 @@ class MainViewController: UIViewController, UIAlertViewDelegate {
         
         // Do any additional setup after loading the view.
         
-        self.view.backgroundColor = UIColor(red: 205, green: 186, blue: 150, alpha: 0.8)
+        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR
+        
+//        let user = UserModel()
+//        var data: Dictionary<String, String> = user.get_userdata()
+//        
+//        let red = CGFloat(data["red"]!.floatValue)
+//        let green = CGFloat(data["green"]!.floatValue)
+//        let blue = CGFloat(data["blue"]!.floatValue)
+//        let alpha = CGFloat(data["alpha"]!.floatValue)
+        
         setupGameMap()
         setupScoreLabels()
+        setupSwipeGuestures()
+        setupButtons()
+        
+//        gmodel.printTiles()
+        
         self.gmodel = GameModel(dimension: self.dimension, maxnumber: self.maxnumber, score:score, bestscore:bestscore)
         for _ in 0...1
         {
             genNumber()
         }
-        gmodel.printTiles()
-        setupSwipeGuestures()
-        setupButtons()
+
         
 //        print("MainViewController\(dimension)")
 //        print("MainVC\(width)")

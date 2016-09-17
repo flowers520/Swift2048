@@ -1,4 +1,10 @@
-
+//
+//  String-Extras.swift
+//  Swift Tools
+//
+//  Created by Fahim Farook on 23/7/14.
+//  Copyright (c) 2014 RookSoft Pte. Ltd. All rights reserved.
+//
 
 import UIKit
 
